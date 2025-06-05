@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Input - Weight Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Weight Tracker</h1>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="daily-input.html" class="active">Daily Input</a></li>
+                <li><a href="statistics.html">Statistics</a></li>
+                <li><a href="#" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2>Daily Input</h2>
+        <p>Date: <span id="current-date"></span></p>
+        
+        <div class="input-cards">
+            <div class="card">
+                <h3>Log Weight</h3>
+                <form id="daily-weight-form">
+                    <div class="form-group">
+                        <label for="weight-input">Today's Weight (kg)</label>
+                        <input type="number" id="weight-input" name="weight" step="0.1" min="20" max="500" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Weight</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h3>Log Calories</h3>
+                <form id="daily-calories-form">
+                    <div class="form-group">
+                        <label for="calories-input">Today's Calories</label>
+                        <input type="number" id="calories-input" name="calories" min="0" max="10000" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Calories</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="frequent-foods">
+            <h3>Quick Add Frequent Foods</h3>
+            <div class="food-list" id="food-list">
+                <!-- This will be populated via JavaScript -->
+            </div>
+            
+            <div class="add-food-section">
+                <h4>Add New Food</h4>
+                <form id="add-food-form">
+                    <div class="form-group">
+                        <label for="food-name">Food Name</label>
+                        <input type="text" id="food-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="food-calories">Calories</label>
+                        <input type="number" id="food-calories" min="0" max="5000" required>
+                    </div>
+                    <button type="submit" class="btn-secondary">Add Food</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="daily-summary">
+            <h3>Today's Summary</h3>
+            <div class="summary-card">
+                <p>Current Weight: <span id="today-weight">Not entered</span></p>
+                <p>Total Calories: <span id="today-calories">0</span> / <span id="calorie-goal">0</span></p>
+                <div class="calorie-progress">
+                    <div class="progress-bar" id="calorie-progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/daily-input.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Weight Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Weight Tracker</h1>
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="daily-input.html">Daily Input</a></li>
+                <li><a href="statistics.html">Statistics</a></li>
+                <li><a href="#" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="dashboard-header">
+            <h2>Welcome, <span id="user-name">User</span>!</h2>
+            <p>Today's Date: <span id="current-date"></span></p>
+        </div>
+        
+        <div class="dashboard-cards">
+            <div class="card">
+                <h3>Current Weight</h3>
+                <p class="big-number"><span id="current-weight">0</span> kg</p>
+                <button id="log-weight-btn" class="btn-secondary">Log Today's Weight</button>
+            </div>
+            
+            <div class="card">
+                <h3>Calories Today</h3>
+                <p class="big-number"><span id="current-calories">0</span> / <span id="calorie-goal">0</span></p>
+                <button id="log-calories-btn" class="btn-secondary">Log Calories</button>
+            </div>
+        </div>
+        
+        <div class="progress-section">
+            <h3>Weight Progress</h3>
+            <div class="chart-container">
+                <canvas id="weight-chart"></canvas>
+            </div>
+        </div>
+        
+        <div class="monthly-overview">
+            <h3>Monthly Overview</h3>
+            <div class="month-selector">
+                <button id="prev-month" class="btn-small">&lt;</button>
+                <span id="current-month">March 2025</span>
+                <button id="next-month" class="btn-small">&gt;</button>
+            </div>
+            <div class="calendar" id="calendar-container">
+                <!-- Calendar will be generated via JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Log Weight Modal -->
+    <div id="weight-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Log Today's Weight</h2>
+            <form id="weight-form">
+                <div class="form-group">
+                    <label for="weight-input">Weight (kg)</label>
+                    <input type="number" id="weight-input" step="0.1" min="20" max="500" required>
+                </div>
+                <button type="submit" class="btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Log Calories Modal -->
+    <div id="calories-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Log Today's Calories</h2>
+            <form id="calories-form">
+                <div class="form-group">
+                    <label for="calories-input">Calories</label>
+                    <input type="number" id="calories-input" min="0" max="10000" required>
+                </div>
+                <button type="submit" class="btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

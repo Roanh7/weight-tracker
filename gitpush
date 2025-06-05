@@ -1,0 +1,8 @@
+git branch
+
+git add .
+git commit -m "Update changes before force push"
+
+git push origin main --force
+
+git status
